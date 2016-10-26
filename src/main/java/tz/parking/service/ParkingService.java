@@ -6,6 +6,7 @@ import tz.parking.entity.Order;
 import tz.parking.entity.Vehicle;
 
 import javax.ejb.Stateless;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -14,8 +15,8 @@ import java.util.List;
 @Stateless
 public class ParkingService {
 
-    public static final Integer PARKING_CAPACITY = 10;
-    public static final Integer COST_PER_HOUR = 100;
+    private static final Integer PARKING_CAPACITY = 10;
+    private static final Integer COST_PER_HOUR = 100;
 
     public List<Vehicle> getParkingVehicles() {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -30,7 +31,7 @@ public class ParkingService {
         Long l = (Long) session.createQuery("select count(o.vehicle) from Order o where o.departureTime is null and o.vehicle.number = :number").
                 setParameter("number", number).uniqueResult();
         session.close();
-        return l != 0 ? true : false;
+        return l != 0;
     }
 
     public Integer getNumberOfFreePlaces() {
@@ -41,7 +42,7 @@ public class ParkingService {
     }
 
     //date with time 00:00:00
-    public Integer getProfitPerDay(Date date) {
+    public Integer getProfitPerDay(@NotNull Date date) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         List<Order> orders = session.createQuery("select o from Order o where DATE(o.arrivalTime) <= :date AND (o.departureTime is null OR DATE(o.departureTime) >= :date)")
