@@ -59,10 +59,10 @@ public class ParkingService {
 
             Date finish = order.getDepartureTime();
             LocalDate departureDate = order.getDepartureTime() != null ? order.getDepartureTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null;
-            if (order.getDepartureTime() == null && now.equals(input)) {
+            if (departureDate == null && now.equals(input)) {
                 finish = new Date(); //до текущего времени
-            } else if (order.getDepartureTime() == null && !now.equals(input) ||
-                    (order.getDepartureTime() != null && !departureDate.equals(input))) {
+            } else if (departureDate == null && !now.equals(input) ||
+                    (departureDate != null && !departureDate.equals(input))) {
                 finish = new Date(date.getTime() + 24 * 60 * 60 * 1000); //до конца дня
             }
 
