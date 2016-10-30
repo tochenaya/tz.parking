@@ -18,7 +18,7 @@ public class Order {
     private Date departureTime;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "vehicleId")
+    @JoinColumn(name = "vehicleNumber")
     private Vehicle vehicle;
 
     public Long getId() {

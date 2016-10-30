@@ -1,28 +1,20 @@
 package tz.parking.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "vehicle")
 public class Vehicle {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column
     private String number;
 
     @Column
     private String manufacturer;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNumber() {
         return number;
@@ -43,8 +35,7 @@ public class Vehicle {
     @Override
     public String toString() {
         return "Vehicle{" +
-                "id=" + id +
-                ", number='" + number + '\'' +
+                " number='" + number + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
                 '}';
     }

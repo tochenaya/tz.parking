@@ -9,6 +9,32 @@ EJB
 WILDFLY
 HIBERNATE
 
+Припорковать машину(inDate - UTC)
+http://localhost/parking/rest/order/parkingVehicle
+<parkingData>
+    <number>5rtt28</number>
+    <manufacturer>rrrr</manufacturer>
+    <inDate>2016-10-30 16:57:55</inDate>
+</parkingData>
+
+Покинуть парковку(outDate - UTC)
+http://localhost/parking/rest/order/unParkingVehicle
+<parkingData>
+    <number>5rtt2</number>
+    <outDate>2016-10-30 18:57:55</outDate>
+</parkingData>
+
+Наличие машины на стоянке
+http://localhost/parking/rest/vehicle/vehicleIsParking?number=1fgt23
+
+Cписок машин на стоянке в данный момент
+http://localhost/parking/rest/vehicle/getParkingVehicles
+
+Кол-во свободных  мест
+http://localhost/parking/rest/order/getNumberOfFreePlaces
+
+Подсчет выручки за день(day - UTC)
+http://localhost/parking/rest/order/getProfitPerDay?day=2016-10-30
 
 <datasource jta="true" jndi-name="java:jboss/parking-datasource" pool-name="parking-datasource" enabled="true" use-java-context="true" spy="false" use-ccm="true">
     <connection-url>jdbc:mysql://localhost:3306/parking?autoReconnect=true&amp;characterEncoding=UTF-8</connection-url>

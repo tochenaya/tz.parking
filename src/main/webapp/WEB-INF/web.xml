@@ -10,7 +10,7 @@
 
     <context-param>
         <param-name>resteasy.resources</param-name>
-        <param-value>tz.parking.rest.Rest</param-value>
+        <param-value>tz.parking.store.impl.OrderRestBean</param-value>
     </context-param>
 
     <context-param>
