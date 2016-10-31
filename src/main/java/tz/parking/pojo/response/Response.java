@@ -6,8 +6,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Response{
 
     private Boolean status;
-    private Integer error_code;
-    private String error_message;
+    private Integer errorCode;
+    private String errorMessage;
 
     public Boolean getStatus() {
         return status;
@@ -17,20 +17,20 @@ public class Response{
         this.status = status;
     }
 
-    public Integer getError_code() {
-        return error_code;
+    public Integer getErrorCode() {
+        return errorCode;
     }
 
-    public void setError_code(Integer error_code) {
-        this.error_code = error_code;
+    public void setErrorCode(Integer errorCode) {
+        this.errorCode = errorCode;
     }
 
-    public String getError_message() {
-        return error_message;
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
-    public void setError_message(String error_message) {
-        this.error_message = error_message;
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 
 }

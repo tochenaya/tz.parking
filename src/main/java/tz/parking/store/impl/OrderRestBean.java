@@ -34,7 +34,7 @@ public class OrderRestBean implements OrderRest {
             Date d = simpleDateFormat.parse(date);
             reportResponse.setProfitPerDay(orderService.getProfitPerDay(d));
         } catch (ParseException e) {
-            reportResponse.setError_message(e.getMessage());
+            reportResponse.setErrorMessage(e.getMessage());
             return reportResponse;
         }
 
@@ -47,12 +47,12 @@ public class OrderRestBean implements OrderRest {
         try {
             if (!orderService.parkingVehicle(parkingData)) {
                 response.setStatus(false);
-                response.setError_message("Error: Vehicle was parked already");
+                response.setErrorMessage("Error: Vehicle was parked already");
                 return response;
             }
         } catch (ParseException e) {
             response.setStatus(false);
-            response.setError_message(e.getMessage());
+            response.setErrorMessage(e.getMessage());
             return response;
         }
         response.setStatus(true);
@@ -65,12 +65,12 @@ public class OrderRestBean implements OrderRest {
         try {
             if (!orderService.unParkingVehicle(parkingData)) {
                 response.setStatus(false);
-                response.setError_message("Error: Vehicle wasn't parked");
+                response.setErrorMessage("Error: Vehicle wasn't parked");
                 return response;
             }
         } catch (Exception e) {
             response.setStatus(false);
-            response.setError_message(e.getMessage());
+            response.setErrorMessage(e.getMessage());
             return response;
         }
         response.setStatus(true);
